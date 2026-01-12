@@ -4,16 +4,32 @@
 
 @layer base {
 	body {
-		@apply bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white;
+		@apply bg-slate-900 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white antialiased overflow-x-hidden;
 	}
 }
 
 @layer components {
 	.glass {
-		@apply bg-white/10 backdrop-blur-md border border-white/20;
+		@apply bg-white/5 backdrop-blur-xl border border-white/10;
 	}
 
 	.glass-hover {
-		@apply hover:bg-white/15 transition-all duration-300;
+		@apply hover:bg-white/10 transition-all duration-300;
+	}
+
+	/* Micro-animations */
+	.animate-fadeIn {
+		animation: fadeIn 0.8s ease-out forwards;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 }
